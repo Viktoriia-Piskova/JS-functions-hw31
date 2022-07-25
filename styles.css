@@ -1,0 +1,16 @@
+*{
+    font-family: 'Roboto Mono', monospace;
+    box-sizing: border-box;
+
+}
+
+input, output{
+    display: block;
+    width: 120px;
+    height: 36px;
+
+}
+
+.outputCalculating{
+    border: 2px solid grey;
+}
