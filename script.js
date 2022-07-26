@@ -4,55 +4,116 @@
 //check if number is perfect
 
 
-document.getElementById('perfectNumberInput').addEventListener("change", checkPerfectNumber);
+document.getElementById('perfectNumberInput').addEventListener("change", checkAndTypePerfectNumber);
 
 
-function checkPerfectNumber(usersNumber){
+
+function checkAndTypePerfectNumber() {
+
     const perfectNumberInput = parseFloat(document.getElementById('perfectNumberInput').value);
-
-    if(perfectNumberInput <= 0){
+    if (perfectNumberInput <= 0) {
         document.getElementById('perfectNumberOutputResult').innerHTML = `Must be > 0`;
         return false;
     }
+    else {
+
+        let countPerfectNumberResult = countPerfectNumber(perfectNumberInput);
+
+        if (countPerfectNumberResult === perfectNumberInput) {
+            document.getElementById('perfectNumberOutputResult').innerHTML = `PERFECT Number!`;
+        }
+        else {
+            document.getElementById('perfectNumberOutputResult').innerHTML = `NOT a perfect Number!`;
+        }
+    }
+}
+
+
+//function to count if any number is perfect
+function countPerfectNumber(anyNumber) {
+
     let divisorsSum = 0;
-    for (let properDivisor = 1; properDivisor <= perfectNumberInput/2; properDivisor++){
-        if (perfectNumberInput % properDivisor == 0){
+    for (let properDivisor = 1; properDivisor <= anyNumber / 2; properDivisor++) {
+        if (anyNumber % properDivisor == 0) {
             divisorsSum += properDivisor;
         }
     }
 
-    if(divisorsSum === perfectNumberInput && divisorsSum != 0){
-        document.getElementById('perfectNumberOutputResult').innerHTML = `PERFECT Number!`;
-        return perfectNumberInput;
+    if (divisorsSum === anyNumber && divisorsSum != 0) {
+
+        return anyNumber;
     }
 
-    else{
-        document.getElementById('perfectNumberOutputResult').innerHTML = `NOT a perfect Number!`;
+    else {
+
         return false;
     }
-    
+
 }
 
-//find perfect numbers in a range
 
-document.getElementById('filterPerfectNumbers').addEventListener('click', filterPerfectNumbers);
 
-const rangeStart = parseFloat(document.getElementById('rangeStart').value);
-const rangeEnd = parseFloat(document.getElementById('rangeEnd').value);
+//
 
-function filterPerfectNumbers(rangeStart, rangeEnd){
+
+//find perfect numbers in a range and display them 
+
+document.getElementById('filterPerfectNumbers').addEventListener('click', filterAndTypePerfectNumbers);
+let arrWithPerfectNumbersOnly = [];
+
+function filterAndTypePerfectNumbers() {
+    document.getElementById('perfectNumbersInRange').innerHTML = ``;
+    arrWithPerfectNumbersOnly = [];
+
+    const rangeStart = parseFloat(document.getElementById('rangeStart').value);
+    const rangeEnd = parseFloat(document.getElementById('rangeEnd').value);
 
     if(rangeStart >= rangeEnd){
-        document.getElementById('perfectNumbersInRange').innerHTML = `Enter correctly: From < To`
+        document.getElementById('perfectNumbersInRange').innerHTML = `Enter correctly: From < To`;
+    }
+    else{
+    filterPerfectNumbers(rangeStart, rangeEnd);
+
+  
+    if (arrWithPerfectNumbersOnly.length >= 1) {
+        
+        arrWithPerfectNumbersOnly.forEach(element => {
+            document.getElementById('perfectNumbersInRange').innerHTML += `${element}, `;
+
+        });
+        //arrWithPerfectNumbersOnly = [];
+    } 
+    else  if (arrWithPerfectNumbersOnly.length <= 0) {
+        document.getElementById('perfectNumbersInRange').innerHTML = `No perfect numbers found`
+    }
+
+  }
+
+}
+
+
+//function for filtering number (uses function to count if any number is perfect countPerfectNumber(anyNumber))
+
+function filterPerfectNumbers(startNumber, endNumber) {
+
+    if (startNumber >= endNumber) {
         return false;
     }
-    
-    for (let i = rangeStart; i <= rangeEnd; i++){
+    else {
+        for (let i = startNumber; i <= endNumber; i++) {
 
-       
-        let filterRange = checkPerfectNumber(i)
+            let filterRange = countPerfectNumber(i);
+            if (filterRange === i) {
+                arrWithPerfectNumbersOnly.push(i);
 
+            }
+        }
+        return arrWithPerfectNumbersOnly;
     }
 
 }
+
+
+
+
 
