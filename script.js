@@ -68,26 +68,26 @@ function filterAndTypePerfectNumbers() {
     const rangeStart = parseFloat(document.getElementById('rangeStart').value);
     const rangeEnd = parseFloat(document.getElementById('rangeEnd').value);
 
-    if(rangeStart >= rangeEnd){
+    if (rangeStart >= rangeEnd) {
         document.getElementById('perfectNumbersInRange').innerHTML = `Enter correctly: From < To`;
     }
-    else{
-    filterPerfectNumbers(rangeStart, rangeEnd);
+    else {
+        filterPerfectNumbers(rangeStart, rangeEnd);
 
-  
-    if (arrWithPerfectNumbersOnly.length >= 1) {
-        
-        arrWithPerfectNumbersOnly.forEach(element => {
-            document.getElementById('perfectNumbersInRange').innerHTML += `${element}, `;
 
-        });
-        //arrWithPerfectNumbersOnly = [];
-    } 
-    else  if (arrWithPerfectNumbersOnly.length <= 0) {
-        document.getElementById('perfectNumbersInRange').innerHTML = `No perfect numbers found`
+        if (arrWithPerfectNumbersOnly.length >= 1) {
+
+            arrWithPerfectNumbersOnly.forEach(element => {
+                document.getElementById('perfectNumbersInRange').innerHTML += `${element}, `;
+
+            });
+            //arrWithPerfectNumbersOnly = [];
+        }
+        else if (arrWithPerfectNumbersOnly.length <= 0) {
+            document.getElementById('perfectNumbersInRange').innerHTML = `No perfect numbers found`
+        }
+
     }
-
-  }
 
 }
 
@@ -114,6 +114,41 @@ function filterPerfectNumbers(startNumber, endNumber) {
 }
 
 
+//script fo automatic slaideshow at background
 
+
+// let allSlidersinList = document.querySelectorAll('.slideItem');
+// let slideNumber = 1;
+
+// //showSlides();
+
+// function showSlides() {
+
+//     for (let i = 1; i < 5;  i++) {
+//         if(i >= allSlidersinList.length){i = 1};
+//         allSlidersinList[i].style.display = "block";
+//         allSlidersinList[i - 1].style.display = "none";
+//         setTimeout(() => {
+            
+//         }, 500);
+//     }
+
+
+    // for (let eachSlider = 0; eachSlider <= allSlidersinList.length; eachSlider++) {
+    //     allSlidersinList[slideNumber].style.display = "none";
+    // }
+
+    
+    // if (slideNumber >= allSlidersinList.length) {
+    //     slideNumber = 1;
+    // }
+
+    // allSlidersinList[slideNumber - 1].style.display = "block";
+    // allSlidersinList[slideNumber].style.display = "none";
+    // slideNumber++;
+
+    //setTimeout(showSlides, 2000)
+    //}
+//}
 
 

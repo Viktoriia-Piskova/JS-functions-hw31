@@ -1,16 +1,76 @@
 *{
     font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
+    
 
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
 }
 
 input, output{
     display: block;
-    width: 120px;
+    width: 70%;
     height: 36px;
+    margin: 10px auto;
 
+}
+
+button{
+    background-color: black;
+    color: aliceblue;
+    margin: 10px auto;
+    display: block;
+}
+
+img{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 
 .outputCalculating{
     border: 2px solid grey;
 }
+
+section{
+   
+    background-color: white;
+    padding: 20px;
+   
+}
+
+.sectionWrapper{
+    position: absolute;
+   
+    top: 14%;
+    left: 28%;
+    margin-bottom: 30px;
+    width: 50vw;
+    
+}
+
+.wrapper{
+    
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+
+.slideItem{
+    display: none;
+}
+
+.fadeAnimation{
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
