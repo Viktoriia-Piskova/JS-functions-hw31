@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="./script.js"></script>
+    <title>Functions | Perfect numbers</title>
+</head>
+
+<body>
+
+
+
+    <div class="wrapper">
+
+        <div class="fadeAnimation slideItem1">
+            <img src="./img/slider1.jpeg" alt="">
+        </div>
+
+        <div class="fadeAnimation slideItem">
+            <img src="./img/slider2.jpg" alt="">
+        </div>
+
+        <div class="fadeAnimation slideItem">
+            <img src="./img/slider1.jpeg" alt="">
+        </div>
+
+        <div class="fadeAnimation slideItem">
+            <img src="./img/slider2.jpg" alt="">
+        </div>
+
+        <div class="sectionWrapper">
+            <section>
+                <div class="question">Perfect number - a positive integer that is equal to the sum of its proper divisors.
+                    Is
+                    your number perfect or not? Let's check it</div>
+                <input class="inputWaighting" type="number" id="perfectNumberInput">
+    
+                <div class="answer">
+                    <output class="outputCalculating" id="perfectNumberOutputResult">calculating...</output>
+                </div>
+            </section>
+    
+            <section>
+                <div class="question">Now define the range and I will show you perfect numbers only</div>
+                <input class="inputWaighting" type="number" id="rangeStart" placeholder="from">
+                <input class="inputWaighting" type="number" id="rangeEnd" placeholder="to">
+                <button id="filterPerfectNumbers">Filter</button>
+    
+                <div class="answer">
+                    <output class="outputCalculating" id="perfectNumbersInRange"></output>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
